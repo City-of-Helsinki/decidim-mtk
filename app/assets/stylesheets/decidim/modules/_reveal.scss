@@ -1,0 +1,71 @@
+/* Reveal foundation overwrites */
+
+.reveal{
+  &.login-reveal{
+    .service-sign-in{
+      margin-top: 2rem;
+    }
+  }
+  .register__separator__text{
+    background: $reveal-background;
+  }
+}
+
+@include breakpoint(small down){
+  .reveal{
+    width: 95%;
+    left: 2.5%;
+    top: 2rem;
+    height: auto;
+    min-height: auto;
+  }
+}
+
+.reveal__header{
+  margin-bottom: 1rem;
+  text-align: center;
+
+  &.reveal__header--nomargin{
+    margin-bottom: 0;
+  }
+}
+
+.reveal__footer{
+  border-top: $border;
+}
+
+.reveal__bg{
+  background-color: $light-gray-dark;
+}
+
+.reveal__title{
+  margin-bottom: 2.5rem;
+  font-size: 2.05rem;
+}
+
+.reveal__list{
+  @extend .list-reset;
+
+  li{
+    @extend .p-s;
+  }
+
+  li.selected{
+    background-color: rgba($warning, .3);
+    display: flex;
+    justify-content: space-between;
+
+    svg{
+      color: $success;
+      align-self: center;
+    }
+  }
+
+  li:hover{
+    cursor: pointer;
+  }
+
+  li:not(:last-child){
+    border-bottom: $border;
+  }
+}

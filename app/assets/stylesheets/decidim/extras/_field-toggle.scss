@@ -1,0 +1,28 @@
+.field-toggle {
+  margin-bottom: 1rem;
+
+  .toggle {
+    margin-bottom: 0.5rem;
+
+    input[type=checkbox] {
+      display: none;
+
+      & + span::after {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        content: "\f078";
+        margin-left: .5rem;
+      }
+
+      &:checked + span::after {
+        content: "\f077";
+      }
+    }
+
+    label {
+      cursor: pointer;
+      font-weight: normal;
+    }
+  }
+}

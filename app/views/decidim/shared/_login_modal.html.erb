@@ -1,0 +1,54 @@
+<div class="reveal login-reveal" id="loginModal" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t(".please_sign_in") %></h3>
+    <button class="close-button" data-close aria-label="Close modal"
+      type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="row">
+    <%= render "decidim/devise/shared/omniauth_buttons_mini" %>
+
+    <div class="service-sign-in">
+      <div class="columns">
+        <div class="text-center">
+          <p>
+            <button class="h5" data-toggle="session session_closed session_open">
+              <%= t("decidim.devise.sessions.new.sign_in_service_account") %>
+              <span id="session_closed" data-toggler=".is-hidden">
+                <i class="fa fa-chevron-down"></i>
+              </span>
+              <span id="session_open" class="is-hidden" data-toggler=".is-hidden">
+                <i class="fa fa-chevron-up"></i>
+              </span>
+            </button>
+          </p>
+        </div>
+      </div>
+
+      <div class="columns medium-10 medium-centered">
+        <div class="register-form-wrapper is-hidden" id="session" data-toggler=".is-hidden">
+          <%= decidim_form_for(Decidim::User.new, as: :user, url: session_path(:user), html: { class: "register-form new_user" }) do |f| %>
+            <div>
+              <div class="field">
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+              <div class="field">
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
+            </div>
+            <div class="actions text-center">
+              <%= f.submit t("devise.sessions.new.sign_in"), class: "button hollow secondary large" %>
+            </div>
+          <% end %>
+          <p class="text-center">
+            <%= link_to t(".sign_up"), decidim.new_user_registration_path, class: "sign-up-link" %>
+          </p>
+          <p class="text-center">
+            <%= link_to t("devise.shared.links.forgot_your_password"), new_password_path(:user) %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

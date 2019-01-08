@@ -1,0 +1,23 @@
+h2, .h2 {
+  line-height: $header-lineheight-h2;
+}
+
+p.subheader {
+  margin-top: 0.9rem;
+  font-size: 135%;
+}
+
+.lead {
+  @include breakpoint(medium) {
+    font-size: $lead-font-size-medium;
+    line-height: $lead-lineheight-medium;
+  }
+  p {
+    line-height: $lead-lineheight;
+    margin-bottom: 0.3rem;
+
+    @include breakpoint(medium) {
+      line-height: $lead-lineheight-medium;
+    }
+  }
+}

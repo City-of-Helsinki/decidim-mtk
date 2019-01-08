@@ -1,0 +1,165 @@
+sv:
+  service_name: 'Bäst fungerande staden'
+  activemodel:
+    errors:
+      models:
+        attachment:
+          attributes:
+            file:
+              has_to_be_photo: 'måste vara foto'
+    attributes:
+      user:
+        about: Om mig
+        email: Din e-post
+        name: Namn eller smeknamn
+      group:
+        name: Namn
+        nickname: Smeknamn
+        email: E-post
+        document_number: Organisation ID (t.ex. FO-nummer)
+        phone: Telefonnummer
+        about: Info
+      invite:
+        nickname: Smeknamn
+  errors:
+    messages:
+      too_many_marks: för många skiljetecken (t.ex. ! och ?)
+      too_much_caps: för många stora bokstäver (över 25% av texten)
+      too_short: för kort (under 15 tecken)
+      mini_magick_processing_error: 'bildbehandling misslyckades'
+  layouts:
+    decidim:
+      wrapper:
+        about_service: 'Om service'
+        feedback: 'Feedback'
+        copyright: '2018 Helsingfors stad'
+  devise:
+    shared:
+      name_will_be_visible: 'Du kan välja om du vill ha ditt namn offentligt syns med dina idéer och meddelanden.'
+      continue_without_account:
+        mailto_subject: 'En ny idé till idé tävling'
+        description_html: 'Om du inte vill registrera dig till tjänsten kan du lämna din idé via <a href="%{link}" target="_blank">det här blankett</a>.'
+        detail: 'I så fall är din idé inte offentlig och kan inte stödjas eller kommenteras. Du kan inte ens delta i lotteriet.'
+        action: 'Fortsätt utan att logga in'
+      omniauth:
+        tunnistamo:
+          sign_in_with: 'Logga in med YLE, Facebook eller Google'
+          description: 'Du kan välja om du vill ha ditt namn offentligt synligt med dina idéer och meddelanden.'
+  decidim:
+    devise:
+      registrations:
+        new:
+          sign_up_service_account: 'Registrera dig via e-post'
+          email_help: E-post måste vara autentiskt och ska kontrolleras det med ett verifieringsmeddelande.
+          sign_up: Registrera
+      sessions:
+        new:
+          sign_in: Logga in
+          sign_in_service_account: 'Logga in med service konto'
+          are_you_new?: Ny användare?
+          register: Registrera dig
+    participatory_spaces:
+      proposal_categories:
+        title: 'Hur skulle Helsingfors bli den mest effektiva staden i världen för dig?'
+        description: 'De teman som Helsingforsbor vill ha som förändringar:'
+        ideas_count_phrase:
+          one: 'Idé'
+          other: 'Idéer'
+      highlighted_proposals:
+        proposals: 'Se vilka idéer som redan har föreslagits'
+        ideas_total: '%{count} idéer'
+        see_all_proposals: 'Se alla idéer'
+    components:
+      proposals:
+        actions:
+          vote: Stöd
+        name: 'Idéer'
+        name_all: 'Alla idéer'
+    proposals:
+      actions:
+        new: 'Ny idé'
+      create:
+        error: Det uppstått fel när du sparade idén.
+        success: Idén sparat som ett utkast.
+      destroy_draft:
+        error: Det har uppstått fel vid radering av idén.
+        success: Idén har tagits bort.
+      publish:
+        error: Det har uppstått fel vid publicering av idén.
+        success: Tack för din idé! Om du vill delta i lotteriet <a href="%{link}" target="_blank">lämna dina kontaktuppgifter här</a>.
+      update:
+        error: Det har uppstått fel när du sparade idén.
+        success: Idén uppdaterades. Om du vill delta i lottoriet <a href="%{link}" target="_blank">lämna dina kontaktuppgifter här</a>.
+      update_draft:
+        error: Det har uppstått fel när du sparade idén.
+        success: Idén uppdaterades.
+      proposals:
+        count:
+          proposals_count: 'Totalt %{count} idéer'
+        index:
+          all_proposals: 'Alla idéer'
+          show_on_map: 'Öppna idéerna på karta'
+          new_proposal: 'Tilllägg din idé'
+        orders:
+          label: 'Ordna idéer:'
+          most_voted: 'Mest populär'
+        category_selector:
+          choose_category: 'Välj tema'
+          show_all: 'Visa alla'
+        proposal:
+          see_proposal: 'Se idé'
+        vote_button:
+          vote: 'Gilla'
+          already_voted: 'Redan gillade'
+        flag_button:
+          report: 'Rapportera'
+        new:
+          title: Skapa din idé
+          your_idea: 'Din egen idé'
+          create_new_idea: 'Skapa en ny idé'
+        edit:
+          title: Redigera idé
+          select_a_category: 'Välj ett tema'
+        edit_draft:
+          discard: Kassera detta utkast
+          discard_confirmation: Är du säker på att du vill kassera detta idéutkast?
+          title: Redigera idéutkast
+        edit_form_fields:
+          write_your_proposal: 'Skriv din egen idé'
+          address: 'Adress'
+          add_address: 'Lägg till en adress'
+          add_photo: 'Lägg till en bild'
+        marker_popup:
+          address: 'Adress'
+          view_proposal: 'Visa idén'
+        preview:
+          modify: Ändra idén
+          proposal_edit_before_minutes:
+            one: Du kommer att kunna redigera idén under första minuten efter att idén har publicerats. Efter det kommer du inte att kunna redigera idén.
+            other: Du kommer att kunna redigera den idén under de första %{count} minuter efter att idé har publicerats. När det här tidsfönstret passerat kommer du inte att kunna redigera idén.
+          title: Publicera din idé
+          dont_want_name_visible: Vill du inte ha ditt namn synligt med idén?
+          edit_profile: Redigera din profil
+          after_edit_profile: 'Efter du har redigerat din profil, ladda om den här sidan.'
+        show:
+          edit_proposal: Redigera idé
+          withdraw_btn_hint: Du kan dra tillbaka din idé om du ångrar dig, så länge du inte har fått något stöd. Idén är inte borttaget, det kommer att visas i listan över borttagna idéer.
+          withdraw_confirmation: Är du säker på att du vill dra tillbaka den här idén?
+          withdraw_proposal: Dra tillbaka idén
+          show_on_map: Visa på kartan
+    progress_bar:
+      votes_count:
+        one: '%{count} som gillar'
+        other: '%{count} som gillar'
+    follows:
+      destroy:
+        button: 'Följt'
+    shared:
+      flag_modal:
+        does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tror inte hör hemma på denna webbplats.
+        offensive: Innehåller rasism, sexism, personliga attacker, dödshot eller någon form av hatprat.
+        spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
+        title: Rapportera ett problem
+      share_modal:
+        copy: Kopiera
+        copied: Kopierat

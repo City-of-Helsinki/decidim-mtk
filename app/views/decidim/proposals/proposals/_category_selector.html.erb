@@ -1,0 +1,26 @@
+<div class="categories">
+  <div class="categories__dropdown">
+    <span class="order-by__text">&nbsp;</span>
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="is-dropdown-submenu-parent">
+        <a>
+          <% if filter.category_id.is_a?(String) && !filter.category_id.empty? %>
+            <%= current_component.categories.find_by(id: filter.category_id.to_i)&.translated_name %>
+          <% else %>
+            <%= t('.choose_category') %>
+          <% end %>
+        </a>
+        <ul class="menu">
+          <li><a href="<%= decidim_participatory_process_proposals.proposals_path %>"><%= t(".show_all") %></a></li>
+          <% current_component.categories.each do |category_option| %>
+            <li>
+              <%= category_link(category_option) do %>
+                <%= category_option.translated_name %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

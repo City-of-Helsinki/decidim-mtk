@@ -1,0 +1,18 @@
+<%= render "decidim/devise/shared/register_separator" %>
+<div class="wrapper">
+  <div class="row collapse">
+    <div class="row">
+      <div class="columns large-6 medium-centered">
+        <div class="text-center">
+          <%
+          link = Rails.application.config.external_links[:alternative_idea_form]
+          %>
+          <p>
+            <%= t 'devise.shared.continue_without_account.description_html', link: link %>
+            <%= t 'devise.shared.continue_without_account.detail' %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

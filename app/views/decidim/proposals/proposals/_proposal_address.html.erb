@@ -1,0 +1,8 @@
+<% if proposal.component.settings.geocoding_enabled? and proposal.geocoded? %>
+<div class="proposal-address">
+  <p>
+    <i class="fa fa-map-marker"></i>
+    <%= proposal.address %>
+  </p>
+</div>
+<% end %>

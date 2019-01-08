@@ -1,0 +1,18 @@
+<%
+# Make it compatible with the proposal preview
+full_body ||= false
+body_text = proposal.body
+body_text = proposal.body.truncate(256) unless full_body
+%>
+<img class="circle" src="<%= proposal_image(proposal) %>">
+<div class="proposal-header">
+  <h3 class="proposal-preview-title">
+    <%= decidim_sanitize(proposal.title) %>
+  </h3>
+  <%= render partial: "decidim/proposals/proposals/category_tag", locals: { proposal: proposal } %>
+</div>
+<div class="proposal-body">
+  <%= decidim_sanitize(body_text) %>
+</div>
+<%= render partial: "decidim/proposals/proposals/proposal_address", locals: { proposal: proposal } %>
+<%= render partial: "decidim/proposals/proposals/proposal_stats", locals: { proposal: proposal } %>

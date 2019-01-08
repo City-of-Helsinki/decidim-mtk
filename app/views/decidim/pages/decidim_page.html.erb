@@ -1,0 +1,31 @@
+<% add_decidim_meta_tags(
+  title: translated_attribute(page.title),
+  description: translated_attribute(page.content)
+) %>
+
+<%
+edit_link(
+  decidim_admin.edit_static_page_path(page),
+  :update,
+  :static_page,
+  static_page: page
+)
+%>
+
+<%= cell "decidim/tos_page", :announcement %>
+
+<%= render "shared/page_header" do %>
+  <h1><%= translated_attribute page.title %></h1>
+<% end %>
+
+<main class="wrapper">
+  <div class="row">
+    <div class="columns large-8 small-centered">
+      <div class="static__content">
+        <%= decidim_sanitize translated_attribute page.content %>
+      </div>
+    </div>
+  </div>
+
+  <%= cell "decidim/tos_page", :sticky_form %>
+</main>

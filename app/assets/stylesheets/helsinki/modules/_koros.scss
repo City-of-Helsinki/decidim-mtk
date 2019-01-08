@@ -1,0 +1,44 @@
+// Try to match the Koros to the layout as close as possible. 100% match is not
+// necessary, close enough is fine.
+@import "helsinki/utils/koro";
+
+$koro-height-md: 19px;
+$koro-height-lg: 31px;
+$koro-height-lg-small: 19px;
+
+.koro {
+  &.margin-top {
+    margin-top: 4rem;
+  }
+  &.margin-bottom {
+    margin-top: 4rem;
+  }
+  &.bg-copper-light {
+    background-color: $hel-copper-light;
+  }
+}
+
+.koro-basic-white-lg {
+  @include koro("basic", $hel-white, 650);
+  height: $koro-height-lg-small;
+
+  @include breakpoint(medium){
+    @include koro("basic", $hel-white, 1100);
+    height: $koro-height-lg;
+  }
+}
+
+.koro-basic-white {
+  @include koro("basic", $hel-white, 650);
+  height: $koro-height-md;
+}
+
+.koro-basic-copper-light {
+  @include koro("basic", $hel-copper-light, 650);
+  height: $koro-height-md;
+}
+
+.koro-storm-summer-light-lg {
+  @include koro("storm", $hel-summer-light, 450);
+  height: $koro-height-lg;
+}

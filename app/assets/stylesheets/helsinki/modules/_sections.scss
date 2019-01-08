@@ -1,0 +1,29 @@
+.section{
+  padding: 4rem 0;
+
+  h2,
+  .h2{
+    margin-top: 0;
+  }
+
+  &.no-top-padding{
+    padding-top: 0;
+  }
+
+  &.no-bottom-padding{
+    padding-bottom: 0;
+  }
+
+  .section-heading{
+    margin-bottom: 2rem;
+  }
+
+  .section-button{
+    margin-top: 3.5rem;
+    text-align: center;
+  }
+}
+
+.section-copper-light{
+  background-color: $hel-copper-light;
+}

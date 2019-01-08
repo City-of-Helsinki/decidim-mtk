@@ -1,0 +1,21 @@
+@mixin foundation-menu-extra {
+  .menu {
+    a {
+      font-weight: normal;
+    }
+
+    // Active item
+    // NOTE: Use active to mark the currently active page instead of
+    //       "is-active". When the dropdowns are opened, the "is-active" state
+    //       is removed from other menu items.
+    .active > a {
+      font-weight: bold;
+    }
+
+    .menu-text {
+      a {
+        font-weight: bold;
+      }
+    }
+  }
+}

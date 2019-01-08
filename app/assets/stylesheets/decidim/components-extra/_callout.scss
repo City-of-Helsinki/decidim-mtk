@@ -1,0 +1,17 @@
+@mixin foundation-callout-extra {
+  .callout {
+    padding: $callout-padding-small;
+
+    @include breakpoint(medium) {
+      padding: $callout-padding;
+    }
+
+    .close-button {
+      right: 0.3rem;
+
+      @include breakpoint(medium) {
+        right: -zf-get-size-val($closebutton-offset-horizontal, medium);
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+<% if current_user.user_groups.verified.any? %>
+  <div class="field">
+    <%= user_group_select_field form, :user_group_id %>
+  </div>
+<% end %>
+
+<div class="field hashtags__container">
+  <%= form.text_field :title, class: "js-hashtags", hashtaggable: true, value: present(@proposal).title %>
+</div>
+
+<% if @form.categories&.any? %>
+  <div class="field">
+    <%= form.categories_select :category_id, @form.categories, prompt: t("decidim.proposals.proposals.edit.select_a_category"), label: "" %>
+  </div>
+<% end %>
+
+<div class="field hashtags__container">
+  <%= form.text_area :body,
+    rows: 10,
+    maxlength: component_settings.proposal_length,
+    class: "js-hashtags mb-0",
+    hashtaggable: true,
+    value: present(@proposal).body,
+    label: t(".write_your_proposal"),
+    data: {
+      remaining_characters: '#body_remaining_characters',
+      remaining_characters_messages: {
+        one: t('decidim.components.add_comment_form.remaining_characters_1', count: '%count%'),
+        many: t('decidim.components.add_comment_form.remaining_characters', count: '%count%'),
+      },
+    }
+  %>
+  <div id="body_remaining_characters" class="form-extra"></div>
+</div>
+
+<% if component_settings.attachments_allowed? && @proposal %>
+  <div class="field-toggle">
+    <div class="field toggle">
+      <label>
+        <input
+          type="checkbox"
+          data-toggle-field
+          data-toggle="photo-field"
+          <%= "checked" if form.object.errors.has_key?(:attachment) || !form.object.attachment.file.nil? %>
+        >
+        <span><%= t(".add_photo") %></span>
+      </label>
+    </div>
+
+    <div id="photo-field">
+      <%= form.fields_for :attachment, @form.attachment do |nested_form| %>
+        <div class="field">
+          <%= nested_form.hidden_field :title, value: "Untitled" %>
+        </div>
+
+        <div class="field">
+          <%= nested_form.upload :file, optional: false %>
+          <% if @form.errors[:attachment].present? %>
+            <% @form.errors[:attachment].each do |message| %>
+              <small class="form-error is-visible">
+                <%= message %>
+              </small>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% if component_settings.geocoding_enabled? %>
+  <div class="field-toggle">
+    <div class="field toggle">
+      <label>
+        <input type="checkbox"
+          value="1"
+          name="<%= "#{form.object_name}[has_address]" %>"
+          data-toggle-field
+          data-toggle="address-field"
+          <%= "checked" if form.object.has_address? %>
+        >
+        <span><%= t(".add_address") %></span>
+      </label>
+    </div>
+    <div class="field" id="address-field">
+      <%= form.text_field :address, label: t(".address") %>
+    </div>
+  </div>
+<% end %>

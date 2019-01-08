@@ -1,0 +1,15 @@
+<div class="results-per-page">
+  <div class="results-per-page__dropdown">
+    <span class="results-per-page__text"><%= t(".label") %></span>
+    <span class="results-per-page__options">
+      <% Decidim::Paginable::OPTIONS.each do |per_page_option| %>
+        <% if per_page.to_i == per_page_option %>
+          <span class="current-per-page"><%= per_page_option %></span>
+        <% else %>
+          <%= link_to per_page_option, url_for(params.to_unsafe_h.merge(page: nil, per_page: per_page_option)), data: { per_page_option: per_page_option } %>
+        <% end %>
+        <% unless per_page_option == Decidim::Paginable::OPTIONS.last %>&nbsp;|&nbsp;<% end %>
+      <% end %>
+    </span>
+  </div>
+</div>

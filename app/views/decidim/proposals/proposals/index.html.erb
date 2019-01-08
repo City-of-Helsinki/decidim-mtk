@@ -1,0 +1,56 @@
+<%= render partial: "decidim/shared/component_announcement" %>
+
+<section class="page-header">
+  <h1><%= t '.all_proposals' %></h1>
+  <%= render partial: "layouts/decidim/process_header_steps", locals: { participatory_process: current_participatory_space } %>
+  <div class="koro koro-basic-white"></div>
+</section>
+
+<div class="wrapper padding-bottom-0">
+  <%= render partial: "voting_rules" %>
+  <div id="proposals-top" class="row columns text-center">
+    <div class="proposals-heading">
+      <h3 id="proposals-count" class="text-center">
+        <%= render partial: "count" %>
+      </h3>
+      <%= render partial: "current_category" %>
+    </div>
+    <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
+      <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button hollow secondary large", data: { "redirect_url" => new_proposal_path } do %>
+        <%= t(".new_proposal") %>
+      <% end %>
+    <% else %>
+      <span class="title-action__action button hollow secondary large disabled">
+        <%= t(".new_proposal") %>
+      </span>
+    <% end %>
+    <% if component_settings.geocoding_enabled? %>
+      <a href="#proposals-map-container" class="title-action__action button hollow secondary large" data-toggle="proposals-map-container" data-toggle-scrollto>
+        <%= t(".show_on_map") %>
+      </a>
+    <% end %>
+  </div>
+</div>
+
+<% if component_settings.geocoding_enabled? %>
+  <div id="proposals-map-container" class="map-container hide" data-toggler=".hide">
+    <div class="close-map-button"><a data-toggle="proposals-map-container" data-close-map>×</a></div>
+    <%= dynamic_map_for proposals_data_for_map(@proposals.select(&:geocoded?)) do %>
+      <%= render partial: "marker_popup", locals: { show_link: true } %>
+      <%= stylesheet_link_tag "decidim/map" %>
+      <%= javascript_include_tag "decidim/map" %>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="wrapper padding-top-0">
+  <div class="row">
+    <div class="large-10 large-push-1">
+      <div id="proposals" class="row">
+        <%= render partial: "proposals" %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag("decidim/filters") %>
+<%= javascript_include_tag "decidim/orders" %>

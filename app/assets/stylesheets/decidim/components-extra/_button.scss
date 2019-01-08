@@ -1,0 +1,12 @@
+@mixin foundation-button-extra {
+  .button {
+    font-weight: $button-font-weight;
+
+    &.large {
+      padding: $button-padding-large;
+    }
+    &.secondary {
+      color: $hel-white;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<%
+categories = nil
+
+if main_component
+  categories = main_component.categories
+end
+%>
+
+<% if categories && categories.length > 0 %>
+<section class="section section-copper-light no-bottom-padding">
+  <div class="row">
+    <div class="columns small-centered medium-10 large-8 text-center section-heading">
+      <h2><%= t '.title' %></h2>
+      <p class="subheader"><%= t '.description' %></p>
+    </div>
+  </div>
+
+  <div class="row column">
+    <div class="row small-up-1 medium-up-2 large-up-4 card-grid small-centered">
+      <% categories.each do |category| %>
+        <div class="column column-block">
+          <div class="circle-card">
+            <%= category_link(category) do %>
+              <div class="circle-card-content" style="background-image:url(<%= category_image(category, :thumb) %>)">
+                <div class="circle-card-section">
+                  <div class="circle-card-title">
+                    <%= decidim_sanitize translated_attribute(category.name) %>
+                  </div>
+                  <div class="circle-card-emphasis">
+                    <%= category_ideas_count(category) %>
+                  </div>
+                  <div class="circle-card-detail">
+                    <%= t '.ideas_count_phrase', count: category_ideas_count(category) %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="section-button">
+    <a href="<%= decidim_participatory_process_proposals.new_proposal_path %>" class="hollow button secondary large"><%= t("decidim.proposals.actions.new") %></a>
+  </div>
+
+  <div class="koro koro-basic-white margin-top"></div>
+</section>
+<% end %>

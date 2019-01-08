@@ -1,0 +1,165 @@
+en:
+  service_name: 'The Most Functional City'
+  activemodel:
+    errors:
+      models:
+        attachment:
+          attributes:
+            file:
+              has_to_be_photo: 'has to be photo'
+    attributes:
+      user:
+        about: About
+        email: Your email
+        name: Name or nickname
+      group:
+        name: Name
+        nickname: Nickname
+        email: Email
+        document_number: Organization ID (e.g. Business ID)
+        phone: Phone
+        about: About
+      invite:
+        nickname: Nickname
+  errors:
+    messages:
+      too_many_marks: using too many consecutive punctuation marks (e.g. ! and ?)
+      too_much_caps: using too many capital letters (over 25% of the text)
+      too_short: too short (under 15 characters)
+      mini_magick_processing_error: 'image processing failed'
+  layouts:
+    decidim:
+      wrapper:
+        about_service: 'About service'
+        feedback: 'Feedback'
+        copyright: '2018 City of Helsinki'
+  devise:
+    shared:
+      name_will_be_visible: 'You can choose if you want your name publicly visible with your ideas and messages.'
+      continue_without_account:
+        mailto_subject: 'Idea competition new idea'
+        description_html: 'If you don''t want to sign up for the service, you can send your idea using <a href="%{link}" target="_blank">this form</a>.'
+        detail: 'In that case, your ideas is not public and cannot be supported or commented. You also cannot participate in the draw.'
+        action: 'Continue without sign in'
+      omniauth:
+        tunnistamo:
+          sign_in_with: 'Sign in with YLE, Facebook or Google'
+          description: 'You can choose if you want your name publicly visible with your ideas and messages.'
+  decidim:
+    devise:
+      registrations:
+        new:
+          sign_up_service_account: 'Sign up using email'
+          email_help: Email has to be real and it will be checked by sending a verification message.
+          sign_up: Sign up
+      sessions:
+        new:
+          sign_in: Sign in
+          sign_in_service_account: 'Sign in with service account'
+          are_you_new?: New user?
+          register: Sign up
+    participatory_spaces:
+      proposal_categories:
+        title: 'Which idea would make Helsinki the most functional city in the world?'
+        description: 'Themes that people living in Helsinki would like to change:'
+        ideas_count_phrase:
+          one: 'Idea'
+          other: 'Ideas'
+      highlighted_proposals:
+        proposals: 'See what has already been suggested'
+        ideas_total: '%{count} ideas'
+        see_all_proposals: 'See all ideas'
+    components:
+      proposals:
+        actions:
+          vote: Support
+        name: 'Ideas'
+        name_all: 'All ideas'
+    proposals:
+      actions:
+        new: 'New idea'
+      create:
+        error: There's been errors when saving the idea.
+        success: Idea saved as a draft.
+      destroy_draft:
+        error: There's been errors deleting the idea draft.
+        success: Idea draft was successfully deleted.
+      publish:
+        error: There's been errors when publishing the idea.
+        success: Thank you for your idea! If you want to participate in the draw <a href="%{link}" target="_blank">leave your contact details here</a>.
+      update:
+        error: There's been errors when saving the idea.
+        success: Idea updated successfully. If you want to participate in the draw <a href="%{link}" target="_blank">leave your contact details here</a>.
+      update_draft:
+        error: There's been errors when saving the idea draft.
+        success: Idea draft updated successfully.
+      proposals:
+        count:
+          proposals_count: '%{count} ideas in total'
+        index:
+          all_proposals: 'All ideas'
+          show_on_map: 'Show ideas on map'
+          new_proposal: 'Add your idea'
+        orders:
+          label: 'Order ideas:'
+          most_voted: 'Most popular'
+        category_selector:
+          choose_category: 'Choose a category'
+          show_all: 'Show all'
+        proposal:
+          see_proposal: 'See idea'
+        vote_button:
+          vote: 'Like'
+          already_voted: 'Already liked'
+        flag_button:
+          report: 'Report'
+        new:
+          title: Create your idea
+          your_idea: 'Your idea'
+          create_new_idea: 'Create a new idea'
+        edit:
+          title: Edit idea
+          select_a_category: 'Choose a category'
+        edit_draft:
+          discard: Discard this draft
+          discard_confirmation: Are you sure you want to discard this idea draft?
+          title: Edit idea draft
+        edit_form_fields:
+          write_your_proposal: 'Write your idea'
+          address: 'Address'
+          add_address: 'Add an address'
+          add_photo: 'Add a photo'
+        marker_popup:
+          address: 'Address'
+          view_proposal: 'View idea'
+        preview:
+          modify: Modify the idea
+          proposal_edit_before_minutes:
+            one: You will be able to edit this idea during the first minute after the idea is published. Once this time window passes, you will not be able to edit the idea.
+            other: You will be able to edit this idea during the first %{count} minutes after the idea is published. Once this time window passes, you will not be able to edit the idea.
+          title: Publish your idea
+          dont_want_name_visible: "Don't want your name visible with the idea?"
+          edit_profile: Edit your profile
+          after_edit_profile: After editing your profile, reload this page.
+        show:
+          edit_proposal: Edit idea
+          withdraw_btn_hint: You can withdraw your idea if you change your mind, as long as you have not received any support. The idea is not deleted, it will appear in the list of withdrawn ideas.
+          withdraw_confirmation: Are you sure to withdraw this idea?
+          withdraw_proposal: Withdraw idea
+          show_on_map: Show on map
+    progress_bar:
+      votes_count:
+        one: '%{count} like'
+        other: '%{count} likes'
+    follows:
+      destroy:
+        button: 'Following'
+    shared:
+      flag_modal:
+        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on this site.
+        offensive: Contains racism, sexism, slurs, personal attacks, death threats or any form of hate speech.
+        spam: Contains clickbait, advertising, scams or script bots.
+        title: Report a problem
+      share_modal:
+        copy: Copy
+        copied: Copied

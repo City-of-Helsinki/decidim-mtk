@@ -1,0 +1,6 @@
+@mixin foundation-form-extra-helptext {
+  .help-text {
+    margin-top: -0.3rem;
+    font-weight: $helptext-font-weight;
+  }
+}

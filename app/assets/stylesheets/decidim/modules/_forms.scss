@@ -1,0 +1,116 @@
+/* Froms foundation overwrites */
+
+.input-group-button button{
+  height: 2.5rem;
+  padding: .5rem 1rem;
+}
+
+.help-text{
+  line-height: 1.1;
+}
+
+label > [type='checkbox'],
+label > [type='radio']{
+  margin-bottom: 0; //fixes some problems with line-height in double-line labels
+}
+
+.checkbox,
+.radio{
+  margin: 0 0 $form-spacing;
+
+  label{
+    position: relative;
+    margin-left: 0;
+    padding-left: 37px;
+    font-size: inherit;
+    font-weight: normal;
+
+    &::before{
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 0;
+      display: block;
+      width: 27px;
+      height: 27px;
+      border: $input-border;
+      background: $hel-white;
+      text-align: center;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 6px;
+      display: none;
+      width: 27px;
+      height: 27px;
+      font-size: 18px !important;
+      line-height: 0 !important;
+      color: $hel-tram;
+    }
+
+    &.is-invalid-label{
+      &:not(:focus) {
+        &::before{
+          border-color: $input-background-invalid;
+          background-color: mix($input-background-invalid, $white, 10%);
+        }
+        a {
+          color: $input-background-invalid;
+        }
+      }
+    }
+  }
+  .form-error{
+    margin-top: 0.3rem;
+  }
+}
+
+.checkbox{
+  input[type='checkbox']{
+    display: none;
+
+    &:checked{
+      + label::after{
+        @include fontawesome;
+        content: "\f00c"; // .fa-check
+        left: 5px;
+      }
+    }
+  }
+}
+
+.radio{
+  input[type='radio']{
+    display: none;
+
+    &:checked{
+      + label::after{
+        @include fontawesome;
+        content: "\f111"; // .fa-circle
+      }
+    }
+  }
+
+  label::before{
+    border-radius: 50%;
+    letter-spacing: -1px;
+  }
+}
+
+/* Switch additional styles */
+
+.switch-with-label{
+  > label{
+    display: flex;
+    align-items: center;
+    line-height: 1.2;
+  }
+
+  .switch-paddle{
+    display: inline-block;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+}

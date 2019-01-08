@@ -1,0 +1,70 @@
+#proposal-controls {
+  button {
+    border-width: 2px;
+  }
+
+  .columns {
+    padding: 0 .2rem;
+  }
+}
+
+#proposal-votes {
+  margin: 2rem;
+}
+
+h3.body-header {
+  margin: 1rem 0;
+}
+
+#map-controls {
+  margin-top: 1rem;
+
+  #toggle-proposal-map {
+    text-decoration: none;
+    font-weight: normal;
+
+    .fa { margin-left: .25rem; }
+
+    .fa-chevron-down { display: inherit; }
+    .fa-chevron-up { display: none; }
+
+    &.showing-map {
+      .fa-chevron-down { display: none; }
+      .fa-chevron-up { display: inherit; }
+    }
+  }
+}
+
+.map-bottom {
+  margin-bottom: -($koro-height-md);
+
+  .google-map { margin-bottom: 0; }
+  .leaflet-bottom.leaflet-right {
+    padding-right: 8px;
+    padding-bottom: 8px + $koro-height-md;
+  }
+
+  & + .koro {
+    height: $koro-height-md + 2px;
+    position: relative;
+    z-index: 999;
+  }
+}
+
+.proposal-image img {
+  max-height: 460px;
+}
+
+.proposal-stats {
+  span:not(:last-child) { margin-right: .5rem; }
+}
+
+h3.proposal-preview-title {
+  display: inline;
+  margin-right: .25rem;
+}
+
+span.label.category {
+  vertical-align: text-bottom;
+  text-transform: uppercase;
+}

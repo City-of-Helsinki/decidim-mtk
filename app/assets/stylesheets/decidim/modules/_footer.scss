@@ -1,0 +1,123 @@
+//Vars
+$main-footer-bg: $hel-summer-light;
+$mini-footer-bg: $hel-summer-light;
+
+//Common
+
+.main-footer,
+.mini-footer{
+  color: $hel-black;
+  font-size: 0.88rem;
+
+  a{
+    font-weight: bold;
+    text-decoration: underline;
+
+    &.cc-badge {
+      text-decoration: none;
+    }
+  }
+}
+
+//Main footer
+.main-footer{
+  background-color: $main-footer-bg;
+  position: relative;
+  padding: 3.6rem 0 1rem;
+  min-height: 76px;
+  margin: -1px 0;
+
+  h5,
+  .h5 {
+    font-size: 1.35rem;
+    margin-bottom: 0.4rem;
+  }
+}
+
+.main-footer__badge{
+  display: block;
+
+  .image{
+    display: block;
+    width: 110px;
+
+    &.image-sv {
+      width: 145px;
+    }
+  }
+  img {
+    width: 100%; // IE11
+  }
+}
+
+.main__footer__nav {
+  margin-top: 2.2rem;
+}
+
+.footer-nav{
+  margin: 0 0 0 -1rem;
+
+  @include breakpoint(large){
+    margin-left: 0;
+  }
+  li{
+    line-height: 1.3;
+  }
+}
+
+.main__footer__social{
+  text-align: center;
+
+  @include breakpoint(medium){
+    text-align: right;
+  }
+}
+
+.footer-social{
+  list-style: none;
+  padding-top: .5rem;
+  margin: 0;
+
+  li{
+    display: inline-block;
+    padding-left: 1rem;
+
+    &:first-child{
+      padding-left: 0;
+    }
+  }
+}
+
+.footer-social__icon .icon{
+  width: 16px;
+  height: 16px;
+}
+
+//Mini footer
+.mini-footer{
+  padding: 1rem 0 3.2rem;
+  background-color: $mini-footer-bg;
+}
+
+.license-wrapper {
+  margin-top: 20px;
+
+  @include breakpoint(large){
+    margin-top: 0;
+  }
+}
+
+.copyright-wrapper {
+  //
+}
+
+.cc-badge{
+  margin-right: .5rem;
+}
+
+.decidim-logo{
+  display: block;
+  width: 140px;
+  margin-right: auto;
+  margin-left: auto;
+}

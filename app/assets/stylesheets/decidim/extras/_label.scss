@@ -1,0 +1,14 @@
+.label-required{
+  margin-left: 5px;
+}
+
+abbr.label-required{
+  border-bottom: 0;
+}
+
+a{
+  .label{
+    font-weight: normal;
+    cursor: pointer;
+  }
+}

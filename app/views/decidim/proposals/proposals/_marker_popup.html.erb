@@ -1,0 +1,14 @@
+<template id="marker-popup">
+  <div class="map-info__content">
+    <h3>${title}</h3>
+    <div id="bodyContent">
+      <p>{{html body}}</p>
+      <p><%= t(".address") %>: ${address}</p>
+      <% if show_link %>
+        <a href="${link}">
+          <%= t(".view_proposal") %>
+        </a>
+      <% end %>
+    </div>
+  </div>
+</template>

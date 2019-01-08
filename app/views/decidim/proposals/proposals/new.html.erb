@@ -1,0 +1,21 @@
+<%= render "shared/page_header" do %>
+  <h1><%= t('decidim.proposals.proposals.new.your_idea') %></h1>
+<% end %>
+
+<div class="wrapper">
+  <div class="row">
+    <div class="columns large-6 small-centered">
+      <h3 class="text-center"><%= t('.create_new_idea') %></h3>
+
+      <%= decidim_form_for(@form) do |form| %>
+        <%= render partial: "edit_form_fields", locals: { form: form } %>
+
+        <div class="actions text-center">
+          <%= form.submit t(".send"), class: "button large hollow secondary mt-s mb-none", data: { disable: true } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/proposals/add_proposal" %>

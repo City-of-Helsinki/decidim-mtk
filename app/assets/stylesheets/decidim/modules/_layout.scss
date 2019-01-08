@@ -1,0 +1,84 @@
+.page-header {
+  a {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  h1 {
+    margin-bottom: 0;
+    text-align: center;
+    &.spaced { margin-bottom: 4rem; }
+  }
+
+  background: $primary;
+  padding-top: 1rem;
+}
+
+.wrapper{
+  padding: 1.2rem 1rem;
+
+  @include breakpoint(medium){
+    padding: 5rem 1.5rem 3rem;
+  }
+
+  @include breakpoint(large){
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.wrapper--inner{
+  background: $hel-copper-light;
+  padding-top: 1rem;
+}
+
+//Flexbox sticky footer
+html{
+  height: 100%;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 100%;
+  min-width: 320px;
+
+  @include breakpoint(smallmedium down){
+    background-color: $dark-gray;
+  }
+}
+
+.footer-separator{
+  flex-grow: 1;
+}
+
+//fixes for off-canvas wrappers
+.off-canvas-wrapper{
+  background-color: $hel-white;
+}
+
+.off-canvas-wrapper,
+.off-canvas-wrapper-inner,
+.off-canvas-content{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.off-canvas{
+  background-color: $hel-suomenlinna;
+
+  .close-button{
+    z-index: 1;
+    color: $hel-black;
+    padding: .2rem .5rem;
+    margin-right: -.5rem;
+  }
+}
+
+.menu .organization-name {
+  display: block;
+  font-size: 90%;
+  padding: 1rem;
+}

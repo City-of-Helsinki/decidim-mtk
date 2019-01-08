@@ -1,0 +1,18 @@
+<%
+# Make it compatible with components outside of the proposals engine
+path = decidim_participatory_process_proposals.proposal_path(proposal)
+
+# Make it compatible with the proposal preview
+disable_link ||= false
+full_body ||= false
+%>
+<div class="proposal-preview column">
+  <% if disable_link %>
+    <%= render partial: "decidim/proposals/proposals/proposal_inner", locals: { proposal: proposal, full_body: full_body } %>
+  <% else %>
+    <%= link_to path do %>
+      <%= render partial: "decidim/proposals/proposals/proposal_inner", locals: { proposal: proposal, full_body: full_body } %>
+    <% end %>
+    <%= link_to t('.see_proposal'), path, class: 'see-proposal' %>
+  <% end %>
+</div>

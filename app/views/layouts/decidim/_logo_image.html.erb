@@ -1,0 +1,11 @@
+<%
+logo_img = "helsinki/helsinki-logo-black.svg"
+image_cls = 'image'
+if I18n.locale == :sv
+  logo_img = "helsinki/helsinki-logo-black-sv.svg"
+  image_cls << ' image-sv'
+end
+
+alt_text = organization.nil? ? "" : organization.name
+%>
+<span class="<%= image_cls %>"><%= image_tag logo_img, alt: alt_text %></span>

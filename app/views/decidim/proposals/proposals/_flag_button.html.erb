@@ -1,0 +1,8 @@
+<div>
+  <button data-open="<%= current_user.present? ? "flagModal" : "loginModal" %>"
+          aria-controls="<%= current_user.present? ? "flagModal" : "loginModal" %>"
+          aria-haspopup="true" class="button secondary expanded hollow">
+    <i class="fa fa-flag"></i>
+    <%= t(".report") %>
+  </button>
+</div>

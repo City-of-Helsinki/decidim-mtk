@@ -1,0 +1,22 @@
+<% add_decidim_page_title(t("participatory_process_steps.index.title", scope: "decidim")) %>
+
+<%= render "shared/page_header" do %>
+  <h1><%= t("participatory_process_steps.index.process_steps", scope: "decidim") %></h1>
+  <p class="margin-top-1">
+    <%= link_to t("decidim.components.proposals.name_all"), decidim_participatory_process_proposals.proposals_path %>
+  </p>
+<% end %>
+
+<div class="wrapper">
+  <main class="steps">
+    <div class="row column">
+      <div class="row">
+        <div class="columns mediumlarge-9 large-7 small-centered">
+          <div class="section">
+            <%= render partial: "timeline" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

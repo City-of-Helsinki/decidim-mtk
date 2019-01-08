@@ -1,0 +1,27 @@
+/* Callout foundation overwrites */
+
+.callout{
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+
+  &.primary{
+    background: $light-gray;
+  }
+
+  &.secondary{
+  }
+
+  &.success{
+  }
+
+  &.warning{
+  }
+
+  &.alert{
+  }
+}
+
+.callout.flash{
+  margin-bottom: 0;
+}

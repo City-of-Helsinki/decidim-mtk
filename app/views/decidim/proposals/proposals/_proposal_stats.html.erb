@@ -1,0 +1,32 @@
+<%
+# Make it compatible with the proposal preview
+date = proposal.published_at || proposal.created_at
+
+# Make it compatible with the proposals page
+votes_count_element ||= false
+%>
+<div class="proposal-stats">
+  <span class="date">
+    <%= date.strftime("%d.%m.%Y") %>
+  </span>
+  <span class="comments">
+    <i class="fa fa-comment-o"></i>
+    <%= proposal.comments.count %>
+  </span>
+  <span class="votes">
+    <i class="fa fa-thumbs-o-up"></i>
+    <% if votes_count_element %>
+      <%= render partial: "decidim/proposals/proposals/votes_count", locals: {
+        proposal: proposal,
+        from_proposals_list: false
+      } %>
+    <% else %>
+      <%= proposal.votes.count %>
+    <% end %>
+  </span>
+  <% unless proposal.authors.empty? %>
+    <span class="proposal-author">
+      <%= decidim_sanitize(proposal.authors.first.name) %>
+    </span>
+  <% end %>
+</div>

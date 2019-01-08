@@ -1,0 +1,7 @@
+<% if proposal.category %>
+  <%= category_link(proposal.category) do %>
+    <span class="label category">
+      <%= proposal.category.translated_name %>
+    </span>
+  <% end %>
+<% end %>

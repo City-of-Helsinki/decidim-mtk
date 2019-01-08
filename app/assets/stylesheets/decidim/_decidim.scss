@@ -1,0 +1,40 @@
+@import "helsinki/variables";
+@import "variables";
+@import "foundation";
+@import "utils/settings";
+
+@include foundation-everything($flex: false);
+
+// NOTE:
+// In case you need to customize any of the Decidim's layout files, copy them
+// one by one to this repository from the used Decidim version (check Gemfile).
+@import "utils/fontface";
+@import "utils/fontawesome";
+@import "decidim/utils/helpers";
+@import "decidim/utils/keyframes";
+@import "decidim/utils/mixins";
+@import "decidim/utils/toggle-expand";
+@import "modules/modules";
+@import "decidim/layouts/highlighted_banner";
+@import "layouts/home";
+@import "decidim/layouts/user";
+@import "decidim/layouts/view";
+//@import "decidim/extras/add_comments"; // Remove the character count styling
+//@import "decidim/extras/announcement"; // No bottm margin
+@import "decidim/extras/collection-sort-controls";
+@import "decidim/extras/embed";
+@import "decidim/extras/impersonation-bar";
+@import "extras/label";
+@import "extras/leaflet";
+@import "decidim/extras/meeting-registrations";
+@import "decidim/extras/process_stats";
+@import "extras/field-toggle";
+@import "decidim/extras/quill";
+@import "decidim/extras/reference";
+@import "decidim/extras/results-per-page";
+@import "decidim/extras/social_icons_mini";
+@import "decidim/extras/status-labels";
+@import "decidim/vizzs/areachart";
+@import "decidim/vizzs/chart-tooltip";
+@import "decidim/vizzs/linechart";
+@import "decidim/vizzs/rowchart";

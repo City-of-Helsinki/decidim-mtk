@@ -1,0 +1,97 @@
+<% add_decidim_meta_tags({
+    description: present(@proposal).body,
+    title: present(@proposal).title,
+    url: proposal_url(@proposal.id)
+}) %>
+<%= render partial: "decidim/shared/component_announcement" %>
+
+<%= render "shared/page_header" do %>
+  <h1><%= present(@proposal).html_title %></h1>
+<% end %>
+
+<div class="wrapper">
+  <div class="row">
+    <div class="columns medium-8 small-centered">
+      <% if image = proposal_image(@proposal, type=:main, accept_placeholder=false) %>
+        <%
+        orig_image = proposal_image(@proposal, type=:main_original, accept_placeholder=false) || image
+        %>
+        <div class="proposal-image">
+          <a href="<%= orig_image %>" target="_blank">
+            <img src="<%= image %>" alt="<%= present(@proposal).html_title %>">
+          </a>
+        </div>
+      <% end %>
+
+      <h3 class="body-header"><%= present(@proposal).html_title %></h3>
+      <%= render partial: "category_tag", locals: { proposal: @proposal } %>
+      <div class="margin-top-1">
+        <%= simple_format present(@proposal).html_body %>
+      </div>
+
+      <% if allowed_to?(:edit, :proposal, proposal: @proposal) %>
+        <p class="text-center">
+          <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow" %>
+        </p>
+      <% end %>
+
+      <%= render partial: "proposal_address", locals: { proposal: @proposal } %>
+      <%= render partial: "proposal_stats", locals: { proposal: @proposal, votes_count_element: true } %>
+    </div>
+  </div>
+
+  <div class="row small-12 medium-10 large-8 xlarge-6 margin-top-2" id="proposal-controls">
+    <div class="columns small-6 mediumlarge-3">
+      <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
+    </div>
+    <div class="columns small-6 mediumlarge-3">
+      <%= follow_button_for(@proposal) %>
+    </div>
+    <div class="columns small-6 mediumlarge-3">
+      <%= render partial: "decidim/shared/share_modal" %>
+    </div>
+    <div class="columns small-6 mediumlarge-3">
+      <%= render partial: "flag_button" %>
+    </div>
+  </div>
+
+  <% if component_settings.geocoding_enabled? and @proposal.geocoded? %>
+    <div class="row">
+      <div class="columns medium-8 small-centered">
+        <div id="map-controls" class="text-center">
+          <a id="toggle-proposal-map" href="#proposal-map-container" data-toggle="proposal-map-container" data-toggle-scrollto>
+            <%= t '.show_on_map' %>
+            <i class="fa fa-chevron-down"></i>
+            <i class="fa fa-chevron-up"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% if component_settings.geocoding_enabled? and @proposal.geocoded? %>
+  <div id="proposal-map-container" class="map-container map-bottom hide" data-toggler=".hide">
+    <div class="close-map-button"><a data-toggle="proposal-map-container" data-close-map>×</a></div>
+    <%= dynamic_map_for proposals_data_for_map([@proposal]) do %>
+      <%= render partial: "marker_popup", locals: { show_link: false } %>
+      <%= stylesheet_link_tag "decidim/map" %>
+      <%= javascript_include_tag "decidim/map" %>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="koro koro-basic-copper-light"></div>
+
+<%= comments_for @proposal %>
+
+<%= javascript_include_tag "decidim/proposals/social_share" %>
+<%= stylesheet_link_tag "decidim/proposals/social_share" %>
+
+<%=
+  render partial: "decidim/shared/flag_modal", locals: {
+    reportable: @proposal,
+    form: @report_form,
+    url: decidim.report_path(sgid: @proposal.to_sgid.to_s)
+}
+%>

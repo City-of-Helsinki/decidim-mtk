@@ -1,0 +1,145 @@
+.phase-title{
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+
+  @include breakpoint(medium){
+    font-size: 1.1rem;
+  }
+
+  line-height: 1;
+  text-transform: uppercase;
+
+  .is-inactive &{
+    color: $muted;
+  }
+}
+
+.phase-date{
+  color: $muted;
+  font-weight: 600;
+  font-size: 90%;
+}
+
+.process-header__progress{
+  margin-bottom: 1rem;
+
+  ol{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  li{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    text-align: center;
+
+    div {
+      margin-bottom: .75rem;
+    }
+
+    &::after{
+      content: "";
+      display: block;
+      height: 4px;
+      width: 100%;
+      background-color: $hel-white;
+      position: absolute;
+      bottom: 6px;
+      z-index: 0;
+    }
+
+    span{
+      display: block;
+      width: 20px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: $hel-white;
+      margin: auto;
+      z-index: 1;
+    }
+  }
+  //Between 11 and 20 elements
+  li:nth-last-child(n+11):nth-last-child(-n+20):first-child,
+  li:nth-last-child(n+11):nth-last-child(-n+20):first-child ~ li{
+    span{
+      width: 5px;
+      height: 5px;
+    }
+
+    &::after{
+      height: 1px;
+      top: 2px;
+    }
+  }
+
+  .phase-item--past{
+    &::after{
+      background-color: $hel-tram;
+    }
+
+    span{
+      background-color: $hel-tram;
+      opacity: 1;
+    }
+  }
+}
+
+.phase-current{
+  font-weight: 600;
+  font-size: 90%;
+}
+
+.process-phase{
+  @extend .process-header__phase;
+
+  padding: 0;
+
+  .process-header__progress{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    border-bottom: 1px solid $muted;
+    padding: .5rem 1rem;
+
+    ol{
+      flex: 1;
+    }
+
+    .phase-current{
+      margin-left: 1rem;
+    }
+  }
+}
+
+.process-header__body{
+  padding: 1rem 1rem 1.5rem;
+
+  .process-header__link{
+    margin-top: .5rem;
+  }
+}
+
+.process-header__button{
+  .button{
+    border-color: $primary;
+  }
+}
+
+.phase-title--initiatives{
+  @extend .phase-title;
+
+  font-size: 1.125rem;
+  margin: 0 0 .5rem;
+}
+
+.phase-subtitle--initiatives{
+  @extend .phase-title;
+
+  font-size: rem-calc(15);
+}

@@ -1,0 +1,38 @@
+$close-button-color: $hel-tram;
+$popup-background-color: $hel-copper-light;
+$shadow-color: rgba(0, 0, 0, 0.4);
+
+.leaflet-container {
+  .map-info {
+    filter: drop-shadow(0 0 10px $shadow-color);
+
+    .leaflet-popup-content { margin: 0; }
+    .leaflet-popup-content-wrapper { padding: 0; }
+
+    .leaflet-popup-close-button {
+      color: $close-button-color;
+      width: 40px;
+      height: 35px;
+      font: bold 40px/35px Tahoma, Verdana, sans-serif;
+      
+      &:hover { color: darken($close-button-color, 10); }
+    }
+
+    #bodyContent { margin: 0 2.5rem; }
+
+    .map-info__content {
+      background-color: $popup-background-color;
+      padding: 2.5rem;
+    }
+
+    a { color: inherit; }
+  }
+
+  .leaflet-popup-tip {
+    background: $popup-background-color;
+  }
+
+  .svg-icon-path {
+    fill: $hel-tram !important;
+  }
+}

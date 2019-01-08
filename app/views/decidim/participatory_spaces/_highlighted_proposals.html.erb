@@ -1,0 +1,28 @@
+<div class="collapse highlighted_proposals">
+  <div class="text-center section-heading">
+    <% if proposals.any? %>
+      <h2><%= t(".proposals") %></h2>
+      <p class="subheader"><%= t(".ideas_total", count: total_ideas_count) %></p>
+    <% else %>
+      <h2><%= t("decidim.proposals.proposals.index.new_proposal") %></h2>
+    <% end %>
+  </div>
+
+  <% if proposals.any? %>
+    <div class="wrapper padding-top-0">
+      <div id="proposals" class="row">
+        <div class="row small-up-1 medium-up-4 card-grid">
+          <%= render proposals %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="section-button">
+    <% if proposals.any? %>
+      <a href="<%= decidim_participatory_process_proposals.proposals_path %>" class="hollow button secondary large"><%= t(".see_all_proposals") %></a>
+    <% else %>
+      <a href="<%= decidim_participatory_process_proposals.new_proposal_path %>" class="hollow button secondary large"><%= t("decidim.proposals.actions.new") %></a>
+    <% end %>
+  </div>
+</div>

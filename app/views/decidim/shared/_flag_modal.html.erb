@@ -1,0 +1,29 @@
+<div class="reveal flag-modal" id="flagModal" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t(".title") %></h3>
+    <button class="close-button" data-close aria-label="<%= t(".close") %>" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <% if reportable.reported_by? current_user %>
+    <p><%= t(".already_reported") %></p>
+  <% else %>
+    <% if false %>
+      <p><%= t(".description") %></p>
+    <% end %>
+
+    <%= decidim_form_for form, url: url, method: :post do |f| %>
+      <%= f.collection_radio_buttons :reason, [[:spam, t(".spam")], [:offensive, t(".offensive")], [:does_not_belong, t(".does_not_belong", organization_name: current_organization.name)]], :first, :last do |builder| %>
+        <div class="radio">
+          <%= builder.radio_button %>
+          <%= builder.label { builder.text } %>
+        </div>
+      <% end %>
+      <%= f.text_area :details, rows: 4 %>
+
+      <div class="text-center">
+        <%= f.submit t(".report") %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

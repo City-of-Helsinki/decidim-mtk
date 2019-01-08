@@ -1,0 +1,29 @@
+<% if translated_attribute(component_settings.new_proposal_help_text).present? %>
+  <%= render partial: "decidim/shared/announcement", locals: { announcement: component_settings.new_proposal_help_text } %>
+<% end %>
+
+<%= render "shared/page_header" do %>
+  <h1><%= t('decidim.proposals.proposals.edit.title') %></h1>
+  <p class="margin-top-1">
+    <%= link_to :back, class: "muted-link" do %>
+      <%= icon "chevron-left", class: "icon--small" %>
+      <%= t("decidim.proposals.proposals.edit.back") %>
+    <% end %>
+  </p>
+<% end %>
+
+<div class="wrapper">
+  <div class="row">
+    <div class="columns large-6 small-centered">
+      <%= decidim_form_for(@form) do |form| %>
+        <%= render partial: "edit_form_fields", locals: { form: form } %>
+
+        <div class="actions text-center">
+          <%= form.submit t(".send"), class: "button large hollow secondary mt-s mb-none", data: { disable: true } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/proposals/add_proposal" %>

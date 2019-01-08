@@ -1,0 +1,18 @@
+@mixin foundation-reveal-extra {
+  .reveal {
+    outline: 0;
+    padding: $reveal-padding-small;
+
+    @include breakpoint(large) {
+      width: $reveal-width-large;
+      padding: $reveal-padding;
+    }
+  }
+
+  // For some reason iPad makes a border in the right side of the view when the
+  // reveal is open. Therefore, force the body to be 100% of the screen when the
+  // reveal is opened.
+  body.is-reveal-open {
+    width: 100%;
+  }
+}

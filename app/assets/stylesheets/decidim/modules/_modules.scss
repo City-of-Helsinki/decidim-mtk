@@ -1,0 +1,86 @@
+// NOTE:
+// In case you need to customize any of the Decidim's layout files, copy them
+// one by one to this repository from the used Decidim version (check Gemfile).
+
+//Basic modules
+@import "decidim/modules/margins";
+@import "typography";
+@import "decidim/modules/title-action";
+@import "buttons";
+@import "forms";
+@import "decidim/modules/icons";
+@import "decidim/modules/video";
+
+//Foundation overrides
+@import "reveal";
+
+//Layout
+@import "layout";
+@import "navbar";
+@import "main-container";
+@import "footer";
+@import "decidim/modules/static-pages";
+
+//Cards and containers
+@import "decidim/modules/card-grid";
+@import "decidim/modules/cards";
+@import "decidim/modules/extra";
+@import "decidim/modules/definition-data";
+@import "callout";
+
+//Shared modules
+@import "comments";
+@import "decidim/modules/messages";
+@import "opinion-toggle";
+@import "decidim/modules/flag";
+@import "decidim/modules/author-avatar";
+@import "decidim/modules/address";
+@import "order-by";
+@import "decidim/modules/tags";
+@import "decidim/modules/input-tags";
+@import "decidim/modules/input-mentions";
+@import "decidim/modules/list-docs";
+@import "decidim/modules/datepicker";
+@import "decidim/modules/pagination";
+@import "decidim/modules/data-picker";
+@import "decidim/modules/progress-bar";
+@import "decidim/modules/docs-manager";
+@import "horizontal-tabs";
+@import "decidim/modules/conversation";
+@import "decidim/modules/orgchart";
+@import "decidim/modules/badges";
+@import "decidim/modules/hover-section";
+
+//Process elements
+@import "process-header";
+@import "decidim/modules/process-info";
+@import "decidim/modules/process-nav";
+@import "process-phase";
+@import "decidim/modules/timeline";
+@import "decidim/modules/filter-tags";
+@import "decidim/modules/filters";
+@import "decidim/modules/inline-filters";
+@import "decidim/modules/reference";
+@import "decidim/modules/status-labels";
+
+//Conference elements
+@import "decidim/modules/conference-nav";
+@import "decidim/modules/conference-speaker";
+@import "decidim/modules/conference-programme";
+
+//User interface
+@import "decidim/modules/user-form";
+@import "signup";
+
+//Additional elements
+@import "decidim/modules/share";
+@import "decidim/modules/help";
+@import "decidim/modules/cookie-bar";
+@import "map";
+@import "decidim/modules/omnipresent_banner";
+@import "decidim/modules/wizard-steps";
+@import "decidim/modules/collapsible-list";
+@import "decidim/modules/block-banner";
+@import "decidim/modules/fingerprint";
+@import "decidim/modules/toggle";
+@import "decidim/modules/loading-spinner";

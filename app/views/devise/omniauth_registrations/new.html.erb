@@ -1,0 +1,31 @@
+<section class="page-header">
+  <div class="row column padding-top-1 padding-bottom-4 text-center">
+    <h1><%= t("decidim.devise.omniauth_registrations.new.sign_up") %></h1>
+  </div>
+  <div class="koro koro-basic-white"></div>
+</section>
+
+<main class="wrapper">
+<div class="row collapse">
+  <div class="row">
+    <div class="columns large-6 medium-10 medium-centered">
+        <%= decidim_form_for(@form, as: resource_name, url: omniauth_registrations_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
+          <div class="user-person">
+            <div class="field">
+              <%= f.text_field :name, help_text: t("devise.shared.name_will_be_visible") %>
+            </div>
+          </div>
+
+          <%= f.hidden_field :uid %>
+          <%= f.hidden_field :provider %>
+          <%= f.hidden_field :oauth_signature %>
+          <%= f.hidden_field :email %>
+
+          <div class="actions text-center">
+            <%= f.submit t("decidim.devise.omniauth_registrations.new.complete_profile"), class: "button large hollow secondary" %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+</main>

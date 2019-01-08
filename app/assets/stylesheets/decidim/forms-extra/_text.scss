@@ -1,0 +1,5 @@
+@mixin foundation-form-extra-text {
+  #{text-inputs()} {
+    height: $input-height;
+  }
+}

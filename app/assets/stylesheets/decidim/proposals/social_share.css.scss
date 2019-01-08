@@ -1,0 +1,40 @@
+/*
+ *= require social-share-button
+ */
+@import 'util/util';
+
+$size: 55px;
+
+.share-link:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.social-share-button{
+  display: inline-block;
+  vertical-align: top;
+
+  .ssb-icon{
+    margin-right: 10px;
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+    border-radius: 8px;
+
+    @include breakpoint(large) {
+      margin-right: 30px;
+    }
+    &.button {
+      .icon {
+        width: 1.4em;
+        height: 1.3em;
+      }
+    }
+    &.button.secondary {
+      &:hover,
+      &:focus {
+        color: #ffffff;
+      }
+    }
+  }
+}

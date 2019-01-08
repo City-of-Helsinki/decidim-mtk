@@ -1,0 +1,8 @@
+@import 'util/util'; // Foundation utils
+@import "variables";
+@import "decidim/variables";
+@import 'decidim/utils/settings'; // Decidim Foundation settings
+@import "utils/*";
+@import "modules/*";
+@import "layouts/*";
+@import "extras/*";

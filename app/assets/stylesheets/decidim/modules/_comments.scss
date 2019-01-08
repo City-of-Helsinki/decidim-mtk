@@ -1,0 +1,186 @@
+/* Variables */
+$comment-padding-base: 1.25rem;
+$comment-padding: 0 0 0 1.25rem;
+
+$comment-vote-up-color: $success;
+$comment-vote-down-color: $alert;
+
+$comment-nested-bg: transparent;
+$comment-nested-alt-bg: $white;
+
+$comment-form-bg: transparent;
+
+/* Comments */
+
+.comments{
+  padding-top: 3rem;
+
+  .order-by__dropdown {
+    text-align: center;
+    display: block;
+
+    @include breakpoint(medium) {
+      display: flex;
+    }
+  }
+}
+
+.comment {
+  margin: 3rem 0;
+}
+
+.comment-thread{
+  padding: 0 $comment-padding-base;
+}
+
+.comment-thread__title{
+  font-weight: normal;
+  font-size: 90%;
+  text-transform: none;
+  color: $muted;
+}
+
+.comment__header{
+  margin-bottom: 1.1rem;
+
+  .author{
+    font-size: 0.9rem;
+  }
+  .author__name {
+    font-weight: normal;
+  }
+  .author-data{
+    padding-left: 0;
+    justify-content: space-between;
+  }
+  .author-data__extra {
+    &::before {
+      display: none;
+    }
+    > button,
+    > span,
+    > a{
+      margin-right: 0;
+    }
+    a,
+    button {
+      color: $hel-black;
+    }
+    .author-data__extra-title {
+      margin-left: 10px;
+    }
+  }
+}
+
+.comment__content{
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  //padding: 0 $comment-padding;
+
+  > :last-child{
+    margin-bottom: 0;
+  }
+  p {
+    line-height: 1.4;
+  }
+}
+
+.comment__footer,
+.comment__additionalreply{
+  margin-top: 2rem;
+  font-size: 0.9rem;
+
+  @include clearfix;
+}
+
+.comment--nested{
+  background: $comment-nested-bg;
+  margin: $comment-padding;
+  margin-top: 2rem;
+  padding-bottom: 1px;
+
+  &.comment--nested--alt{
+    background: $comment-nested-alt-bg;
+  }
+}
+
+.comment__reply{
+  float: left;
+  color: $hel-black;
+}
+
+.comment__votes{
+  position: relative;
+  top: -3px;
+  float: right;
+  font-size: 1.1rem;
+
+  .icon {
+    position: relative;
+    top: 4px;
+    font-size: 1.7rem;
+  }
+}
+
+.comment__votes--up{
+  color: $hel-black;
+
+  &:hover,
+  &.is-vote-selected{
+    color: darken($comment-vote-up-color, 10);
+
+    .icon{
+      color: inherit;
+    }
+  }
+
+  &.is-vote-notselected{
+    color: $muted;
+    opacity: .3;
+
+    .icon{
+      color: inherit;
+    }
+  }
+}
+
+.comment__votes--down{
+  color: $hel-black;
+  padding-left: .3rem;
+
+  &:hover,
+  &.is-vote-selected{
+    color: darken($comment-vote-down-color, 10);
+
+    .icon{
+      color: inherit;
+    }
+  }
+
+  &.is-vote-notselected{
+    color: $muted;
+    opacity: .3;
+
+    .icon{
+      color: inherit;
+    }
+  }
+}
+
+/* Comment form */
+
+.add-comment{
+  background: $comment-form-bg;
+  //padding: $comment-padding;
+
+  .button{
+    margin-bottom: 0;
+  }
+}
+
+// When replying to comment
+.comment{
+  > .add-comment {
+    padding: $comment-padding;
+  }
+}

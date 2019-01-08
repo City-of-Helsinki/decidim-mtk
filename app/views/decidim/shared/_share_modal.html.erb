@@ -1,0 +1,44 @@
+<div>
+  <button id="share-button" class="button secondary expanded hollow" data-open="processShare">
+    <i class="fa fa-share"></i>
+    <%= t(".share") %>
+  </button>
+</div>
+<div class="reveal" id="processShare" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t(".share") %>:</h3>
+    <button class="close-button" data-close aria-label="<%= t(".close_window") %>" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="button-group text-center">
+    <%= social_share_button_tag(decidim_page_title,
+                                url: decidim_meta_url,
+                                image: decidim_meta_image_url,
+                                desc: h(decidim_meta_description),
+                                via: decidim_meta_twitter_handler) %>
+    <div class="social-share-button">
+      <a class="button success ssb-icon" data-open="urlShare">
+        <%= icon "link-intact" %>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="reveal" id="urlShare" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t(".share_link") %>:</h3>
+    <button class="close-button" data-close aria-label="<%= t(".close_window") %>" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="input-group">
+    <input class="input-group-field" type="text" value="<%= "#{decidim_meta_url}" %>" disabled="">
+    <div class="input-group-button">
+      <button class="button secondary hollow" data-copy-to-clipboard="<%= "#{decidim_meta_url}" %>"
+        data-copy-to-clipboard-success="<%= t(".copied") %>">
+        <%= icon 'clipboard' %>
+        <%= t(".copy") %>
+      </button>
+    </div>
+  </div>
+</div>
