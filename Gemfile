@@ -16,7 +16,7 @@ gem "decidim-antivirus", "~> 0.15.0"
 
 gem "bootsnap", "~> 1.3"
 
-gem "puma", "~> 3.0"
+gem "puma", "~> 3.12"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 1.9"
