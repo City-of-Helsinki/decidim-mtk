@@ -50,3 +50,6 @@ group :production, :staging do
   gem 'resque', '~> 1.26'
   gem 'resque-scheduler', '~> 4.0'
 end
+
+# https://github.com/decidim/decidim/issues/5410
+gem "sprockets", "~> 3.7.2"
